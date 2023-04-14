@@ -1,4 +1,4 @@
-package yk.scp.studycalenderproject;
+package com.scp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
