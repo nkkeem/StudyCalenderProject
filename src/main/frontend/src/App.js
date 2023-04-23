@@ -1,46 +1,23 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useRef, useState} from 'react';
+import Header from "./Sample/Header";
+import Main from "./Sample/Main";
+import CalendarPage from "./Sample/CalendarPage";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import NotFound from "./Sample/error/NotFound";
 
 function App() {
-  const [message, setMessage] = useState("");
-/*
-  useEffect(() => {
-    fetch("/api/helloworld")
-        .then((response) => response.text())
-        .then(message => {
-            setMessage(message);
-        });
-    console.log("@" + message);
-  }, [])
-*/
-
-  useEffect(() => {
-    axios.get('/api/ex/helloworld')
-        .then(response => setMessage(response.data))
-        .catch(error => console.log(error))
-  }, [])
+  const ref = useRef(null);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-
-        <p>백엔드에서 가져온 내용 : {message}</p>
-      </header>
-    </div>
+    <BrowserRouter ref={ref}>
+            <Header />
+            <Routes>
+                <Route path="/" element={<Main />}></Route>
+                <Route path="/calendar" element={<CalendarPage />}></Route>
+                {/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
+                <Route path="*" element={<NotFound />}></Route>
+            </Routes>
+    </BrowserRouter>
   );
 }
 
