@@ -39,7 +39,7 @@ public class EmployeeRepositoryTest {
 
     @Test
     public void select(){
-        Optional<Employee> entity = employeeRepository.findById(1111);
+        Optional<Employee> entity = employeeRepository.findById(1000);
 
         entity.ifPresent(
                 selectEmployee -> {
@@ -50,7 +50,7 @@ public class EmployeeRepositoryTest {
 
     @Test
     public void update(){
-        Optional<Employee> employee = employeeRepository.findById(1111);
+        Optional<Employee> employee = employeeRepository.findById(1000);
 
         employee.ifPresent(
                 selectEmployee -> {
@@ -62,7 +62,7 @@ public class EmployeeRepositoryTest {
 
     @Test
     public void delete(){
-        Optional<Employee> employee = employeeRepository.findById(1000);
+        Optional<Employee> employee = employeeRepository.findById(1001);
 
         Assertions.assertTrue(employee.isPresent());
 
@@ -72,7 +72,7 @@ public class EmployeeRepositoryTest {
                 }
         );
 
-        Optional<Employee> deletedEmployee = employeeRepository.findById(1000);
+        Optional<Employee> deletedEmployee = employeeRepository.findById(1001);
         Assertions.assertFalse(deletedEmployee.isPresent());
     }
 
