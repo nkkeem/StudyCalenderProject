@@ -1,24 +1,26 @@
 package com.scp.example.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
 @RestController
 @RequestMapping("/api/ex")
 public class ExampleController {
+//
+//    @GetMapping("/helloworld")
+//    public String HelloWorld(){
+//        return "현재 시각 : " + new Date();
+//    }
 
-    @GetMapping("/helloworld")
-    public String HelloWorld(){
+    @GetMapping("/getToDo/{date}")
+    public String toDo(@PathVariable(name = "date") String date){
+        // localhost:8090/api/ex/getToDo/2023-04-11
+        return "선택한 날짜는 " + date;
+    }
+
+    @GetMapping("/helloworld2")
+    public String HelloWorld2(){
         return "현재 시각 : " + new Date();
     }
-
-    @GetMapping("/board")
-    public String board(@RequestParam String date){
-        return "오늘 날짜 : " + date;
-    }
-
 }
