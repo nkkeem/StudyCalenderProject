@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import moment from "moment";
-import "../../components/calendar.css";
+import "./components/calendar.css";
 import Calendar from "react-calendar";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
