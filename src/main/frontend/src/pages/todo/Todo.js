@@ -1,7 +1,7 @@
 import React from 'react';
 
-import TodoTemplate from "./toDoTemplate";
-import TodoInsert from "./toDoInsert";
+import TodoTemplate from "./TodoTemplate";
+import TodoInsert from "./TodoInsert";
 
 function Todo() {
     return (
