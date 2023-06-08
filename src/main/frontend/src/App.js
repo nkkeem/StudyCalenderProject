@@ -3,7 +3,6 @@ import CalendarPage from './pages/calendar/CalendarPage';
 import Signup from './pages/user/Signup';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './pages/error/NotFound';
-import Todo from './pages/todo/Todo';
 import Home from "./pages/Home";
 import TodoTemplate from "./pages/todo/TodoTemplate";
 
