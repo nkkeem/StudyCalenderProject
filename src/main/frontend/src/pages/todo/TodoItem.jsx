@@ -1,8 +1,8 @@
 import React from 'react';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import styled from 'styled-components';
 import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined';
 import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
+import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 
 const Div = styled.div`
   display: flex;
@@ -49,10 +49,15 @@ const Button = styled.button`
 `;
 
 function TodoItem({todo}) {
-  return (
+    const onClickButton = () => {
+
+    }
+    return (
     <Div className="TodoItem">
-      <Button className="checkBox">
-        <CheckBoxOutlineBlankOutlinedIcon />
+      <Button className="checkBox" onClick={onClickButton}>
+          {todo.checked ? <CheckBoxOutlinedIcon />
+              : <CheckBoxOutlineBlankOutlinedIcon />
+          }
       </Button>
       <Content>{todo.content}</Content>
       <Button className="deleteBox">

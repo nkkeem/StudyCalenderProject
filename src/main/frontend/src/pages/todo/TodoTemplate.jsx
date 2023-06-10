@@ -20,7 +20,7 @@ function TodoTemplate({ children }) {
     {
       id: 2,
       content: '5kg 다이어트 하기',
-      checked: true,
+      checked: false,
     },
     {
       id: 3,
