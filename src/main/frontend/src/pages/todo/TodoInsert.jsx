@@ -45,7 +45,7 @@ const Button = styled.button`
 function TodoInsert() {
   return (
     <Form className="TodoInsert">
-      <Input placeholder="할 일을 입력하세요" />
+      <Input placeholder="할 일을 입력하세요" style = {{ fontFamily : 'SUITE-Regular' }}/>
       <Button type="submit">
         <MdAdd />
       </Button>
