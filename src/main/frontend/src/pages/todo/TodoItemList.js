@@ -3,7 +3,12 @@ import TodoItem from './TodoItem';
 
 function TodoItemList(props) {
   return (
+    <>
       <TodoItem />
+      <TodoItem />
+      <TodoItem />
+      <TodoItem />
+    </>
   );
 }
 
