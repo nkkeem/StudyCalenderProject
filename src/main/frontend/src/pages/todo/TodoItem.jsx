@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined';
 import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
+import cn from 'classnames';
 
 const Div = styled.div`
   display: flex;
@@ -19,6 +20,10 @@ const Content = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 1rem;
+  &.checked{
+    color: #adb5bd;
+    text-decoration: line-through;
+  }
 `;
 
 const Button = styled.button`
@@ -33,11 +38,7 @@ const Button = styled.button`
   background: none;
   outline: none;
   border: none;
-  &:hover {
-    svg {
-      color: gray;
-    }
-  }
+
   &.deleteBox {
     svg {
       color: #ff6b6b;
@@ -46,21 +47,28 @@ const Button = styled.button`
       }
     }
   }
+  &.checkBox {
+    svg {
+      &:hover {
+        color: #a9a9a9;
+      }
+    }
+  }
+
 `;
 
-function TodoItem({todo}) {
-    const onClickButton = () => {
+function TodoItem({ todo }) {
+  const { content, checked } = todo;
 
-    }
-    return (
-    <Div className="TodoItem">
-      <Button className="checkBox" onClick={onClickButton}>
-          {todo.checked ? <CheckBoxOutlinedIcon />
-              : <CheckBoxOutlineBlankOutlinedIcon />
-          }
+  return (
+    <Div className='TodoItem'>
+      <Button className={cn('checkBox', { checked })}>
+        {checked ? <CheckBoxOutlinedIcon /> : <CheckBoxOutlineBlankOutlinedIcon />}
       </Button>
-      <Content>{todo.content}</Content>
-      <Button className="deleteBox">
+      <Content className={cn({ checked })}>
+        {content}
+      </Content>
+      <Button className='deleteBox'>
         <RemoveCircleOutlineRoundedIcon />
       </Button>
     </Div>
