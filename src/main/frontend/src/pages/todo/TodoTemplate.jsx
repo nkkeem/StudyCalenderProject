@@ -5,13 +5,14 @@ import TodoItemList from './TodoItemList';
 import TodoTitle from './TodoTitle';
 import styled from 'styled-components';
 import './components/font.scss';
+import {useCallback, useRef} from "react";
 
 const Div = styled.div`
   font-family: 'SUITE-Regular';
 `;
 
-function TodoTemplate({ children }) {
-  const [todo, setTodo] = useState([
+function TodoTemplate() {
+  const [todos, setTodos] = useState([
     {
       id: 1,
       content: '리액트로 To Do List 만들기',
@@ -29,11 +30,26 @@ function TodoTemplate({ children }) {
     },
   ]);
 
+  const nextId = useRef(4);
+  // 배열에 항목이 추가되는 함수
+  const onInsert = useCallback(
+      (content) => {
+        const todo = {
+          id: nextId.current,
+          content,
+          checked: false,
+        };
+        setTodos(todos.concat(todo));
+        console.log(todos);
+      },
+      [todos],
+  );
+
   return (
     <Div className="TodoTemplate">
       <TodoTitle title="TO DO LIST"></TodoTitle>
-      <TodoInsert />
-      <TodoItemList todos={todo} />
+      <TodoInsert todos={todos} setTodos={setTodos} onInsert={onInsert}/>
+      <TodoItemList todos={todos} />
     </Div>
   );
 }
