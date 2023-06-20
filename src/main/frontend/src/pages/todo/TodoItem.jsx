@@ -56,7 +56,7 @@ const Button = styled.button`
     }
 `;
 
-function TodoItem({ todo }) {
+function TodoItem({ todo, onRemove }) {
     const { content, checked } = todo;
     const [toggle, setToggle] = useState(checked);
 
@@ -76,7 +76,7 @@ function TodoItem({ todo }) {
                 )}
             </Button>
             <Content className={cn({ checked })}>{content}</Content>
-            <Button className="deleteBox">
+            <Button className="deleteBox" onClick={() => onRemove(todo.id)}>
                 <RemoveCircleOutlineRoundedIcon />
             </Button>
         </Div>

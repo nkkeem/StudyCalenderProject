@@ -45,11 +45,17 @@ function TodoTemplate() {
       [todos],
   );
 
+  const onRemove = useCallback(
+      (id) => {
+          setTodos(todos.filter((todo) => todo.id != id))
+      }, [todos]
+  );
+
   return (
     <Div className="TodoTemplate">
       <TodoTitle title="TO DO LIST"></TodoTitle>
       <TodoInsert todos={todos} setTodos={setTodos} onInsert={onInsert}/>
-      <TodoItemList todos={todos} />
+      <TodoItemList todos={todos} onRemove={onRemove}/>
     </Div>
   );
 }
