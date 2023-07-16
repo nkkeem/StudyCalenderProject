@@ -2,6 +2,7 @@ package com.scp.todo.domain;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,6 +30,7 @@ public class Todo implements Serializable {
     private String content = "text";
 
     @Column(name = "create_at")
+    @CreatedDate
     private LocalDate createAt;
 
     @Column(name = "date", nullable = false)
