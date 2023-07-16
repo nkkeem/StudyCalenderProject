@@ -4,9 +4,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test_db
-    username: test_user
-    password: test
+    url: jdbc:mysql://localhost:3306/studycalendar
+    username: admin
+    password: admin1234*
 
   jpa:
     open-in-view: false
