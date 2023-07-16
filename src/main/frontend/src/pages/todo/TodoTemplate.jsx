@@ -40,6 +40,7 @@ function TodoTemplate() {
           checked: false,
         };
         setTodos(todos.concat(todo));
+        nextId.current +=1;
         console.log(todos);
       },
       [todos],

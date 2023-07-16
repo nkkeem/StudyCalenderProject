@@ -56,6 +56,7 @@ function TodoInsert({ onInsert }) {
             setValue('');
 
             // submit 이벤트는 브라우저에서 새로고침을 발생시킴
+            // preventDefault: a 태그나 submit 이 실행돼도 새로고침하지 않게 하기 위함.
             e.preventDefault();
         },
         [onInsert, value],
