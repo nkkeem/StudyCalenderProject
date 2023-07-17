@@ -1,20 +1,19 @@
 package com.scp.todo.domain;
 
 import lombok.Data;
-import lombok.experimental.Accessors;
-import org.springframework.data.annotation.CreatedDate;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.sql.Date;
 
 @Data
 @Entity
-@Accessors(chain = true)
-@Table(name = "studycalendar.todo")
+@Table(name = "todo")
+@NoArgsConstructor
 public class Todo implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -24,16 +23,18 @@ public class Todo implements Serializable {
     private Integer todoId;
 
     @Column(name = "user_id", nullable = false)
-    private String userId = "test";
+    private String userId;
 
     @Column(name = "content", nullable = false)
-    private String content = "text";
+    private String content;
 
     @Column(name = "create_at")
-    @CreatedDate
-    private LocalDate createAt;
+    private Date createAt;
 
     @Column(name = "date", nullable = false)
-    private LocalDate date;
+    private Date date;
+
+    @Column(name = "checked_yn", nullable = false)
+    private String checkedYn = "N";
 
 }
