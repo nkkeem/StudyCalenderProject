@@ -6,6 +6,7 @@ import TodoTitle from './TodoTitle';
 import styled from 'styled-components';
 import './components/font.scss';
 import {useCallback, useRef} from "react";
+import TodoSave from "./TodoSave";
 
 const Div = styled.div`
   font-family: 'SUITE-Regular';
@@ -57,6 +58,7 @@ function TodoTemplate() {
       <TodoTitle title="TO DO LIST"></TodoTitle>
       <TodoInsert todos={todos} setTodos={setTodos} onInsert={onInsert}/>
       <TodoItemList todos={todos} onRemove={onRemove}/>
+      <TodoSave todos={todos} ></TodoSave>
     </Div>
   );
 }
